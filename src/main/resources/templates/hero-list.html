@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Heroes</title>
+</head>
+<body>
+<div th:switch="${heroes}">
+    <h2 th:case="null">No items found!</h2>
+    <div th:case="*">
+        <h2>Heroes</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Primary Attribute</th>
+                <th>Attribute income</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="hero : ${heroes}">
+                <td th:text="${hero.id}"></td>
+                <td th:text="${hero.name}"></td>
+                <td th:text="${hero.primary_attr}"></td>
+                <td th:text="${hero.stat_income}"></td>
+                <td><a th:href="@{heroes/{id}/update(id=${hero.id})}">Edit</a></td>
+                <td><a th:href="@{heroes/{id}/delete(id=${hero.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/heroes/create">Create Hero</a></p>
+</div>
+</body>
+</html>
