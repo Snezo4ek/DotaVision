@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create hero</title>
+</head>
+<body>
+<form action="#" th:action="@{/heroes/create}" th:object="${hero}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <label for="primary_attr">Description</label>
+    <input type="text" th:field="*{primary_attr}" id="primary_attr" placeholder="Primary attribute">
+    <label for="stat_income">Attribute income</label>
+    <input type="number" th:field="*{stat_income}" id="stat_income" placeholder="2">
+    <input type="submit" value="Create Hero">
+</form>
+</body>
+</html>
